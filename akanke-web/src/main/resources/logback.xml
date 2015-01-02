@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <property name="PROJECT_ID" value="akanke-web"/>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/${PROJECT_ID}.json</File>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>10</maxIndex>
+            <FileNamePattern>logs/${PROJECT_ID}.json.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>16MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <logger name="eu.kielczewski" additivity="false" level="INFO">
+        <appender-ref ref="file"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <root level="WARN">
+        <appender-ref ref="file"/>
+    </root>
+</configuration>

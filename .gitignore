@@ -1,0 +1,8 @@
+.idea
+*.iml
+target
+logs
+*.log
+node_modules
+bower_components
+public

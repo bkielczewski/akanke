@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.kielczewski.akanke</groupId>
+    <artifactId>akanke</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.2.0.RELEASE</version>
+    </parent>
+
+    <modules>
+        <module>akanke-common</module>
+        <module>akanke-web</module>
+        <module>akanke-admin</module>
+        <module>akanke-site-example</module>
+    </modules>
+
+    <name>Akanke Parent</name>
+    <url>http://kielczewski.eu/akanke</url>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <logstash-logback-encoder.version>3.4</logstash-logback-encoder.version>
+        <pegdown.version>1.4.2</pegdown.version>
+        <restfb.version>1.7.0</restfb.version>
+        <guava.version>18.0</guava.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Akanke -->
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>akanke-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>akanke-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>akanke-web-frontend</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>akanke-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>akanke-admin-frontend</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Logstash Logback Encoder -->
+
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback-encoder.version}</version>
+            </dependency>
+
+            <!-- Pegdown -->
+
+            <dependency>
+                <groupId>org.pegdown</groupId>
+                <artifactId>pegdown</artifactId>
+                <version>${pegdown.version}</version>
+            </dependency>
+
+            <!-- RestFB -->
+
+            <dependency>
+                <groupId>com.restfb</groupId>
+                <artifactId>restfb</artifactId>
+                <version>${restfb.version}</version>
+            </dependency>
+
+            <!-- Guava -->
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!-- Java EE -->
+
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+
+            <!-- Assembly -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <descriptor>${project.basedir}/assembly.xml</descriptor>
+                    <finalName>akanke-${project.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Docker Maven Plugin -->
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <version>0.1.1</version>
+                <configuration>
+                    <imageName>akanke</imageName>
+                    <baseImage>dockerfile/java:oracle-java8</baseImage>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>akanke-web/target</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                        <resource>
+                            <directory>akanke-site-example/targer</directory>
+                            <includes>
+                                <include>config/**</include>
+                                <include>documents/**</include>
+                                <include>resources/**</include>
+                                <include>templates/**</include>
+                            </includes>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

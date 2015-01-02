@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>akanke-site-example</artifactId>
+
+    <parent>
+        <artifactId>akanke</artifactId>
+        <groupId>eu.kielczewski.akanke</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <name>Akanke Example Site</name>
+
+    <build>
+
+        <plugins>
+
+            <!-- Resources -->
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main</directory>
+                                    <includes>
+                                        <include>config/**</include>
+                                        <include>documents/**</include>
+                                        <include>templates/**</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Grunt -->
+
+            <plugin>
+                <groupId>pl.allegro</groupId>
+                <artifactId>grunt-maven-plugin</artifactId>
+                <version>1.4.1</version>
+                <configuration>
+                    <bowerExecutable>node_modules/bower/bin/bower</bowerExecutable>
+                    <gruntExecutable>node_modules/grunt-cli/bin/grunt</gruntExecutable>
+                    <runGruntWithNode>true</runGruntWithNode>
+                    <jsSourceDirectory>WEB-INF</jsSourceDirectory>
+                    <gruntBuildDirectory>${project.basedir}</gruntBuildDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>npm</goal>
+                            <goal>bower</goal>
+                            <goal>grunt</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

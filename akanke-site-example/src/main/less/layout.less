@@ -1,0 +1,220 @@
+@text-color-normal: #777;
+@text-color-lighter: #999;
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+pre {
+  overflow-x: auto;
+
+  code {
+    overflow-wrap: normal;
+    word-wrap: normal;
+    white-space: pre;
+  }
+}
+
+.navbar-default {
+  background: rgba(248, 248, 248, 0.85);
+  .navbar-brand {
+    background: url('/public/images/akanke-logo-50x50-transparent.png') no-repeat;
+    padding-left: 50px;
+  }
+}
+
+article {
+  font-weight: 400;
+  line-height: 2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  h1, h2, h3 {
+    margin: 0 0 .5em 0;
+    color: @text-color-normal;
+    a {
+      color: @text-color-normal;
+    }
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.7em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+  .meta {
+    margin-bottom: 2em;
+    li {
+      color: @text-color-lighter;
+      .fa {
+        margin-right: 0.5em;
+      }
+      a {
+        color: @text-color-lighter;
+      }
+    }
+  }
+  section {
+    margin-bottom: 3em;
+    font-size: 1.1em;
+    p, ul, ol, pre {
+      margin-bottom: 2em;
+    }
+  }
+}
+
+.page-top {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.section-heading {
+  margin: .775em 0 1em 0;
+  position: relative;
+  border-top: solid 5px #e7e7e7;
+
+  a, span {
+    top: -0.775em;
+    padding: 0 1.5em 0 0;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    color: @text-color-normal;
+  }
+
+  &.text-center {
+    a, span {
+      padding: 0 1.5em 0 1.5em;
+    }
+  }
+}
+
+.intro-header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  color: #f8f8f8;
+  background: url('/public/images/cover.jpg') no-repeat center center;
+  background-size: cover;
+  .intro-message {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    h1 {
+      margin: 0;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+      font-size: 5em;
+    }
+    h3 {
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .intro-social-buttons {
+    margin-top: 3em;
+    .btn {
+      border-radius: 100%;
+    }
+  }
+}
+
+.adsense {
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.content-section-a {
+  padding: 50px 0;
+  background-color: #f8f8f8;
+  .section-heading {
+    a, span {
+      background-color: #f8f8f8;
+    }
+  }
+  p, li {
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+  .adsense {
+    text-align: center;
+    padding: 3em 0 3em 0;
+  }
+}
+
+.content-section-b {
+  padding: 50px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  p, li {
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+  .adsense {
+    text-align: center;
+    padding: 3em 0 3em 0;
+  }
+}
+
+.tagcloud {
+  font-size: 1.1em;
+  font-weight: normal;
+  line-height: 2.5em;
+  a {
+    margin-right: 1.5em;
+  }
+}
+
+.popular {
+  li {
+    margin-bottom: 1em;
+  }
+}
+
+.lead {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.sidebar {
+  h3 {
+    text-align: left;
+  }
+  & > ul {
+    padding: 0;
+  }
+  ul {
+    list-style: none;
+    margin: 0 0 3em;
+    line-height: 1.8em;
+  }
+  .adsense {
+    text-align: center;
+    padding: 3em 0 3em 0;
+  }
+}
+
+footer {
+  padding: 50px 0;
+  background-color: #f8f8f8;
+
+  .copyright {
+    margin: 15px 0 0;
+  }
+}
+
