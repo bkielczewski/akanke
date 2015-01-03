@@ -1,4 +1,4 @@
-Akanke - Tech Blogging Engine
+Akanke - Tech Blogging Engine ![Travis Build Status](https://travis-ci.org/bkielczewski/akanke.svg "Travis Build Status")
 =============================
 Aims to provide minimalistic blogging experience with more technical users in mind.
 
