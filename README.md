@@ -1,25 +1,34 @@
 Akanke - Tech Blogging Engine
 =============================
-Easy blogging for more technical users.
+Aims to provide minimalistic blogging experience with more technical users in mind.
 
 Features
 --------
-* Simple to deploy, backed by files, no database or configuration necessary.
-* Articles written in Markdown.
+* Backed by Markdown files.
+* Fast, files are synced to and served from in-memory database.
+* No database, dependencies or configuration necessary, just run the provided JAR.
 * Wordpress compatible URL scheme for easy migration.
 * Build-in Facebook integration for social features.
-* Open source, 100% Java.
+* Open source, 100% Java, free to use.
 
 User Guide
 ----------
 For downloads and installation instructions check out the page: [kielczewski.eu/akanke](http://kielczewski.eu/akanke)
-Otherwise just run it, it's in the example content.
+Otherwise just grab the binaries and run it, detailed instructions are provided in the example content.
 
 Docker
 ------
-You can run it straight from Docker image:
+You can pull it from Docker image:
 
-TBD
+    docker pull bkielczewski/akanke
+
+And then run:
+
+    docker run -rm -p 8080:8080 bkielczewski/akanke
+
+Once it starts, point your browser to:
+
+    http://localhost:8080
 
 Development
 -----------
@@ -35,14 +44,16 @@ Development
 3. Point your browser to [http://localhost:8080](http://localhost:8080)
 
 ### Contributing
-You're really welcome to contribute, just create a pull request and I'll accept it if it makes sense.
+You're really welcome to contribute or share ideas. Given you know Spring it should be quite straight-forward to
+make at least some sense out of the code. If not, just ask questions and I'll try to help.
 
 ### Road map
 I'll be looking into:
 
-* Support for more templating engines
-* Writing an admin module that allows creating and editing Markdown files online
-* Build-in Git integration to store and sync documents using a repository
+* RSS feeds
+* Supporting alternative templating engines (JSP)
+* Admin module that allows creating and editing Markdown files online
+* Build-in Git integration to store and sync `./documents` contents using a repo
 
 Release History
 ---------------
