@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 
     var bowerDir = 'bower_components/';
 
-    var dstDir = 'target/';
+    var dstDir = 'target-grunt/';
     var dstFontsDir = dstDir + 'resources/fonts/';
     var dstCssDir = dstDir + 'resources/css/';
     var dstJsDir = dstDir + 'resources/js/';

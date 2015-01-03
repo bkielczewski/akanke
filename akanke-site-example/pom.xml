@@ -15,36 +15,23 @@
     <name>Akanke Example Site</name>
 
     <build>
+        <resources>
+            <resource>
+                <directory>target-grunt</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main</directory>
+                <includes>
+                    <include>config/**</include>
+                    <include>documents/**</include>
+                    <include>templates/**</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
 
         <plugins>
-
-            <!-- Resources -->
-
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>target/</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main</directory>
-                                    <includes>
-                                        <include>config/**</include>
-                                        <include>documents/**</include>
-                                        <include>templates/**</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 
             <!-- Grunt -->
 
@@ -56,7 +43,6 @@
                     <bowerExecutable>node_modules/bower/bin/bower</bowerExecutable>
                     <gruntExecutable>node_modules/grunt-cli/bin/grunt</gruntExecutable>
                     <runGruntWithNode>true</runGruntWithNode>
-                    <jsSourceDirectory>WEB-INF</jsSourceDirectory>
                     <gruntBuildDirectory>${project.basedir}</gruntBuildDirectory>
                 </configuration>
                 <executions>

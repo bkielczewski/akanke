@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>akanke-bin</artifactId>
+    <packaging>pom</packaging>
+
+    <parent>
+        <artifactId>akanke</artifactId>
+        <groupId>eu.kielczewski.akanke</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <name>Akanke Binary Assembly</name>
+
+    <dependencies>
+
+        <!-- Akanke -->
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>akanke-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>akanke-site-example</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Assembly -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptor>assembly.xml</descriptor>
+                    <finalName>akanke-${project.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bin-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Docker -->
+
+            <plugin>
+                <groupId>org.jolokia</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.10.5</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <alias>akanke</alias>
+                            <name>bkielczewski/akanke:${project.version}</name>
+                            <build>
+                                <from>dockerfile/java:oracle-java8</from>
+                                <exportDir>/data</exportDir>
+                                <assemblyDescriptor>assembly.xml</assemblyDescriptor>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                                <command>java -jar akanke-web-${version}.jar</command>
+                            </build>
+                            <run>
+                                <ports>
+                                    <port>8080:8080</port>
+                                </ports>
+                                <log>
+                                    <prefix>DOCKER</prefix>
+                                    <date>default</date>
+                                    <color>cyan</color>
+                                </log>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

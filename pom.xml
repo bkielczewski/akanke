@@ -20,6 +20,7 @@
         <module>akanke-web</module>
         <module>akanke-admin</module>
         <module>akanke-site-example</module>
+        <module>akanke-bin</module>
     </modules>
 
     <name>Akanke Parent</name>
@@ -52,19 +53,13 @@
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>akanke-web-frontend</artifactId>
+                <artifactId>akanke-site-example</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>akanke-admin</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>akanke-admin-frontend</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -110,60 +105,4 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-
-            <!-- Assembly -->
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <inherited>false</inherited>
-                <configuration>
-                    <descriptor>${project.basedir}/assembly.xml</descriptor>
-                    <finalName>akanke-${project.version}</finalName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Docker Maven Plugin -->
-
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <inherited>false</inherited>
-                <version>0.1.1</version>
-                <configuration>
-                    <imageName>akanke</imageName>
-                    <baseImage>dockerfile/java:oracle-java8</baseImage>
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>akanke-web/target</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                        <resource>
-                            <directory>akanke-site-example/targer</directory>
-                            <includes>
-                                <include>config/**</include>
-                                <include>documents/**</include>
-                                <include>resources/**</include>
-                                <include>templates/**</include>
-                            </includes>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
