@@ -116,7 +116,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('default', ['uglify:dist', 'less:dist', 'copy']);
+    grunt.registerTask('default', ['uglify:dist', 'less:dist', 'copy', 'compress']);
     grunt.registerTask('dev', ['uglify:dev', 'less:dev', 'copy']);
 
 };
