@@ -72,7 +72,7 @@ public class DirectoryWatcherDao {
     }
 
     private boolean isIgnoredPath(String dir) {
-        return !dir.startsWith(".");
+        return dir.startsWith(".");
     }
 
     private void processWatchEvents(Path parent, List<WatchEvent<?>> events,
