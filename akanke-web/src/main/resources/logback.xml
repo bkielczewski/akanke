@@ -4,14 +4,13 @@
     <property name="PROJECT_ID" value="akanke-web"/>
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <File>logs/${PROJECT_ID}.json</File>
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
-        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <maxIndex>10</maxIndex>
-            <FileNamePattern>logs/${PROJECT_ID}.json.%i</FileNamePattern>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${PROJECT_ID}-%d{yyyy-MM-dd}.json.%i</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>16MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
-        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <MaxFileSize>16MB</MaxFileSize>
-        </triggeringPolicy>
     </appender>
     <logger name="eu.kielczewski" additivity="false" level="INFO">
         <appender-ref ref="file"/>
