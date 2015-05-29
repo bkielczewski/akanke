@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.dao.directory;
+package eu.kielczewski.akanke.common.dao.directory;
 
 import com.google.common.base.MoreObjects;
 import org.slf4j.Logger;
@@ -129,7 +129,7 @@ public class DirectoryWatcherDao {
                     .toString();
         }
 
-        public static enum Type {
+        public enum Type {
             CREATE, DELETE, MODIFY
         }
     }

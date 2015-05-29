@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.config;
+package eu.kielczewski.akanke.common.config;
 
 import org.pegdown.PegDownProcessor;
 import org.springframework.beans.factory.FactoryBean;

@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.dao.directory;
+package eu.kielczewski.akanke.common.dao.directory;
 
 import com.google.common.collect.ImmutableList;
 import org.slf4j.Logger;

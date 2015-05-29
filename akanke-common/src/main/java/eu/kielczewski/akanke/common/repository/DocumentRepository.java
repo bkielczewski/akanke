@@ -1,6 +1,6 @@
-package eu.kielczewski.akanke.core.repository;
+package eu.kielczewski.akanke.common.repository;
 
-import eu.kielczewski.akanke.core.domain.Document;
+import eu.kielczewski.akanke.common.domain.Document;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

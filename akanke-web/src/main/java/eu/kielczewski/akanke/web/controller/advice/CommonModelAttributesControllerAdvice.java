@@ -1,6 +1,6 @@
 package eu.kielczewski.akanke.web.controller.advice;
 
-import eu.kielczewski.akanke.core.service.document.DocumentService;
+import eu.kielczewski.akanke.common.service.document.DocumentService;
 import eu.kielczewski.akanke.web.service.viewhelper.ViewHelperService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ControllerAdvice;

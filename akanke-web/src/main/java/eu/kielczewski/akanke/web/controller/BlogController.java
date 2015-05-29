@@ -1,6 +1,6 @@
 package eu.kielczewski.akanke.web.controller;
 
-import eu.kielczewski.akanke.core.service.document.DocumentService;
+import eu.kielczewski.akanke.common.service.document.DocumentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

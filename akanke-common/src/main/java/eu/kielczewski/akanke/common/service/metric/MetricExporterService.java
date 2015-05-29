@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.service.metric;
+package eu.kielczewski.akanke.common.service.metric;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

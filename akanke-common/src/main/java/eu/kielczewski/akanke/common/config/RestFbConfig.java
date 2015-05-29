@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.config;
+package eu.kielczewski.akanke.common.config;
 
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;

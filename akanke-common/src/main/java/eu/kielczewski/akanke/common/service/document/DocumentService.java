@@ -1,6 +1,6 @@
-package eu.kielczewski.akanke.core.service.document;
+package eu.kielczewski.akanke.common.service.document;
 
-import eu.kielczewski.akanke.core.domain.Document;
+import eu.kielczewski.akanke.common.domain.Document;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

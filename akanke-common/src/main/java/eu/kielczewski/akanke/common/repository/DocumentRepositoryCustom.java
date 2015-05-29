@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.repository;
+package eu.kielczewski.akanke.common.repository;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
-package eu.kielczewski.akanke.core.service.facebook;
+package eu.kielczewski.akanke.common.service.facebook;
 
 import com.restfb.FacebookClient;
 import com.restfb.exception.FacebookException;
-import eu.kielczewski.akanke.core.domain.FacebookStats;
+import eu.kielczewski.akanke.common.domain.FacebookStats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

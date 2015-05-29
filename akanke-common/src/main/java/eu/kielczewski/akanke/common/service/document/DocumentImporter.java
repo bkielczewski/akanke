@@ -1,9 +1,9 @@
-package eu.kielczewski.akanke.core.service.document;
+package eu.kielczewski.akanke.common.service.document;
 
-import eu.kielczewski.akanke.core.dao.directory.DirectorySeekerDao;
-import eu.kielczewski.akanke.core.dao.directory.DirectoryWatcherDao;
-import eu.kielczewski.akanke.core.domain.Document;
-import eu.kielczewski.akanke.core.repository.DocumentRepository;
+import eu.kielczewski.akanke.common.dao.directory.DirectorySeekerDao;
+import eu.kielczewski.akanke.common.dao.directory.DirectoryWatcherDao;
+import eu.kielczewski.akanke.common.domain.Document;
+import eu.kielczewski.akanke.common.repository.DocumentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

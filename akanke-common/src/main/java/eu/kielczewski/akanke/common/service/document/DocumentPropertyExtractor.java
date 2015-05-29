@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.service.document;
+package eu.kielczewski.akanke.common.service.document;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

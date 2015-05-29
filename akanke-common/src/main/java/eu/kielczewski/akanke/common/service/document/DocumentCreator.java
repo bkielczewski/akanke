@@ -1,9 +1,9 @@
-package eu.kielczewski.akanke.core.service.document;
+package eu.kielczewski.akanke.common.service.document;
 
 import com.google.common.io.Files;
-import eu.kielczewski.akanke.core.dao.file.FileDao;
-import eu.kielczewski.akanke.core.domain.Document;
-import eu.kielczewski.akanke.core.service.facebook.FacebookStatsService;
+import eu.kielczewski.akanke.common.dao.file.FileDao;
+import eu.kielczewski.akanke.common.domain.Document;
+import eu.kielczewski.akanke.common.service.facebook.FacebookStatsService;
 import org.pegdown.PegDownProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

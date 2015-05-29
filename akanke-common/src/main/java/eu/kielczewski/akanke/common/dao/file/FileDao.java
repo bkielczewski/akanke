@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.dao.file;
+package eu.kielczewski.akanke.common.dao.file;
 
 import com.google.common.base.Charsets;
 import org.slf4j.Logger;

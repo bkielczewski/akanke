@@ -1,4 +1,4 @@
-package eu.kielczewski.akanke.core.domain;
+package eu.kielczewski.akanke.common.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.google.common.base.MoreObjects;
