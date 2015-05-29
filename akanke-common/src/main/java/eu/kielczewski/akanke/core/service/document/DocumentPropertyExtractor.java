@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 @Component
 public class DocumentPropertyExtractor {
 
+    private static final Pattern PATTERN_DOCUMENT_PROPERTY = Pattern.compile("\\s*([a-zA-Z0-9_]+)\\s*[=|:]\\s*(.+)\\s*");
     private static final Logger LOGGER = LoggerFactory.getLogger(DocumentPropertyExtractor.class);
 
     public Map<String, String> fromContents(String content) {
@@ -28,8 +29,7 @@ public class DocumentPropertyExtractor {
     }
 
     private Map<String, String> extract(String src) {
-        Pattern p = Pattern.compile("\\s*([a-zA-Z0-9_]+)\\s*[=|:]\\s*(.+)\\s*");
-        Matcher m = p.matcher(src);
+        Matcher m = PATTERN_DOCUMENT_PROPERTY.matcher(src);
         Map<String, String> props = new HashMap<>();
         while (m.find()) {
             props.put(m.group(1), m.group(2));
