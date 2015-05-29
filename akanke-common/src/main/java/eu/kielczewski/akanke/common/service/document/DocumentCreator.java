@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 import static com.google.common.base.Preconditions.checkArgument;
 
 @Component
-public class DocumentCreator {
+class DocumentCreator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DocumentCreator.class);
     private final FileDao fileDao;

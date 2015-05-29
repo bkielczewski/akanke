@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Component
-public class DocumentFacebookStatsUpdater {
+class DocumentFacebookStatsUpdater {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DocumentFacebookStatsUpdater.class);
     private final DocumentRepository documentRepository;
