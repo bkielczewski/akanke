@@ -46,7 +46,6 @@ public class BlogController {
         return new ModelAndView("blog", model);
     }
 
-    @SuppressWarnings("MVCPathVariableInspection")
     @RequestMapping("/{year:[0-9]+}/{month:[0-9]+}/{title}/")
     public ModelAndView getDocument(@PathVariable String year, @PathVariable String month, @PathVariable String title) {
         ModelMap model = new ModelMap();

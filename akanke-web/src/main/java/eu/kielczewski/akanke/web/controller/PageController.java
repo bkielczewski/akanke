@@ -33,7 +33,7 @@ public class PageController {
         return "error";
     }
 
-    @RequestMapping("/{templateName:.+}/")
+    @RequestMapping("/{templateName:.....+}/")
     public String getPage(@PathVariable String templateName) throws IOException {
         if (freeMarkerConfigurer.getConfiguration().getTemplateLoader()
                 .findTemplateSource(templateName + ".ftl") == null) {
