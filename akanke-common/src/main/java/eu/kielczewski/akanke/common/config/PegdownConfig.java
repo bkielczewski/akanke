@@ -1,31 +1,18 @@
 package eu.kielczewski.akanke.common.config;
 
 import org.pegdown.PegDownProcessor;
-import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class PegdownConfig {
 
     @Bean
-    public FactoryBean<PegDownProcessor> pegDownProcessorFactoryBean() {
-        return new FactoryBean<PegDownProcessor>() {
-            @Override
-            public PegDownProcessor getObject() {
-                return new PegDownProcessor();
-            }
-
-            @Override
-            public Class<PegDownProcessor> getObjectType() {
-                return PegDownProcessor.class;
-            }
-
-            @Override
-            public boolean isSingleton() {
-                return false;
-            }
-        };
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public PegDownProcessor pegDownProcessor() {
+        return new PegDownProcessor();
     }
 
 }

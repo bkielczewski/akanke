@@ -7,7 +7,7 @@ import eu.kielczewski.akanke.common.service.facebook.FacebookStatsService;
 import org.pegdown.PegDownProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -27,10 +27,13 @@ public class DocumentCreator {
     private final FileDao fileDao;
     private final DocumentPropertyExtractor propertyExtractor;
     private final FacebookStatsService facebookStatsService;
-    private final FactoryBean<PegDownProcessor> pegDownProcessor;
+    private final ObjectFactory<PegDownProcessor> pegDownProcessor;
 
     @Inject
-    public DocumentCreator(FileDao fileDao, DocumentPropertyExtractor propertyExtractor, FacebookStatsService facebookStatsService, FactoryBean<PegDownProcessor> pegDownProcessor) {
+    public DocumentCreator(FileDao fileDao,
+                           DocumentPropertyExtractor propertyExtractor,
+                           FacebookStatsService facebookStatsService,
+                           ObjectFactory<PegDownProcessor> pegDownProcessor) {
         this.fileDao = fileDao;
         this.propertyExtractor = propertyExtractor;
         this.facebookStatsService = facebookStatsService;
