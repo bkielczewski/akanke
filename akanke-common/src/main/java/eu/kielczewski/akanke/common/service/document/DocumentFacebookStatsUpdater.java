@@ -36,8 +36,7 @@ class DocumentFacebookStatsUpdater {
         LOGGER.trace("Updating Facebook stats of document id={}", document.getId());
         FacebookStats updated = facebookStatsService.get(document.getId());
         FacebookStats current = document.getFacebookStats();
-        current.setCommentsboxCount(updated.getCommentsboxCount());
-        current.setLikeCount(updated.getLikeCount());
+        current.setCommentCount(updated.getCommentCount());
         current.setShareCount(updated.getShareCount());
         documentRepository.save(document);
     }

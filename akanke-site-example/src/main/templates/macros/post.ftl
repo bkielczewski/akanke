@@ -15,8 +15,7 @@
 <ul class="meta list-inline hidden-xs">
     <li><i class="fa fa-clock-o"></i>${viewHelperService.relativeDate(post.datePublished)}</li>
     <li itemprop="datePublished"><i class="fa fa-calendar-o"></i>${post.datePublished?string("dd/MM/yyyy")}</li>
-    <li><a href="${post.id}#comments"><i class="fa fa-comments-o"></i>${post.facebookStats.commentsboxCount}</a></li>
-    <li><a href="${post.id}"><i class="fa fa-thumbs-o-up"></i>${post.facebookStats.likeCount}</a></li>
+    <li><a href="${post.id}#comments"><i class="fa fa-comments-o"></i>${post.facebookStats.commentCount}</a></li>
     <li><a href="${post.id}"><i class="fa fa-share-square-o"></i>${post.facebookStats.shareCount}</a></li>
     <#if post.tags?has_content>
         <li itemprop="keywords" class="tags">

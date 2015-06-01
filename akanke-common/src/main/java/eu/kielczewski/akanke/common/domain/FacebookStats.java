@@ -2,7 +2,6 @@ package eu.kielczewski.akanke.common.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.restfb.Facebook;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,42 +18,33 @@ public class FacebookStats {
     private int id;
 
     @NotNull
-    @Facebook("commentsbox_count")
-    @JsonProperty("commentsbox_count")
-    @Column(name = "commentsbox_count")
-    private int commentsboxCount = 0;
+    @JsonProperty("comment_count")
+    @Column(name = "comment_count")
+    private int commentCount = 0;
 
     @NotNull
-    @Facebook("share_count")
     @JsonProperty("share_count")
     @Column(name = "share_count")
     private int shareCount = 0;
 
-    @NotNull
-    @Facebook("like_count")
-    @JsonProperty("like_count")
-    @Column(name = "like_count")
-    private int likeCount = 0;
-
     public FacebookStats() {
     }
 
-    public FacebookStats(int commentsboxCount, int shareCount, int likeCount) {
-        this.commentsboxCount = commentsboxCount;
+    public FacebookStats(int commentCount, int shareCount) {
+        this.commentCount = commentCount;
         this.shareCount = shareCount;
-        this.likeCount = likeCount;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getCommentsboxCount() {
-        return commentsboxCount;
+    public int getCommentCount() {
+        return commentCount;
     }
 
-    public void setCommentsboxCount(int commentsboxCount) {
-        this.commentsboxCount = commentsboxCount;
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
     }
 
     public int getShareCount() {
@@ -65,21 +55,12 @@ public class FacebookStats {
         this.shareCount = shareCount;
     }
 
-    public int getLikeCount() {
-        return likeCount;
-    }
-
-    public void setLikeCount(int likeCount) {
-        this.likeCount = likeCount;
-    }
-
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("id", id)
-                .add("commentsboxCount", commentsboxCount)
+                .add("commentCount", commentCount)
                 .add("shareCount", shareCount)
-                .add("likeCount", likeCount)
                 .toString();
     }
 

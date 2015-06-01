@@ -98,13 +98,6 @@
             <artifactId>guava</artifactId>
         </dependency>
 
-        <!-- RestFB -->
-
-        <dependency>
-            <groupId>com.restfb</groupId>
-            <artifactId>restfb</artifactId>
-        </dependency>
-
         <!-- Java EE -->
 
         <dependency>

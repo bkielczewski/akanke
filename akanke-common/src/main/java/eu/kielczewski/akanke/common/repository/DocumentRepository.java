@@ -24,7 +24,7 @@ public interface DocumentRepository extends JpaRepository<Document, String>, Doc
     @Transactional
     void deleteByFileStartingWith(String target);
 
-    @Query("SELECT d FROM Document d ORDER BY (d.facebookStats.likeCount + d.facebookStats.shareCount + d.facebookStats.commentsboxCount) DESC")
+    @Query("SELECT d FROM Document d ORDER BY (d.facebookStats.shareCount + d.facebookStats.commentCount) DESC")
     List<Document> getMostPopular(Pageable pageable);
 
 }

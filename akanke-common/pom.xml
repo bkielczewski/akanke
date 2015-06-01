@@ -38,6 +38,11 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-social-facebook</artifactId>
+        </dependency>
+
         <!-- Logstash Logback Encoder -->
 
         <dependency>
@@ -57,13 +62,6 @@
         <dependency>
             <groupId>org.pegdown</groupId>
             <artifactId>pegdown</artifactId>
-        </dependency>
-
-        <!-- RestFB -->
-
-        <dependency>
-            <groupId>com.restfb</groupId>
-            <artifactId>restfb</artifactId>
         </dependency>
 
         <!-- Guava -->
