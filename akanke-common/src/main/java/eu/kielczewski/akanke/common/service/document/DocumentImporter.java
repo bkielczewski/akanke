@@ -7,6 +7,7 @@ import eu.kielczewski.akanke.common.repository.DocumentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -25,24 +26,34 @@ class DocumentImporter {
     private final DirectoryWatcherDao watcherDao;
     private final DocumentCreator documentCreator;
     private final DocumentRepository repository;
+    private final TaskExecutor taskExecutor;
 
     @Inject
     public DocumentImporter(@Value("${akanke.documents.path}") String baseDir,
                             DirectorySeekerDao seekerDao,
                             DirectoryWatcherDao watcherDao,
                             DocumentRepository repository,
-                            DocumentCreator documentCreator) {
+                            DocumentCreator documentCreator,
+                            TaskExecutor taskExecutor) {
         this.baseDir = baseDir;
         this.documentCreator = documentCreator;
         this.seekerDao = seekerDao;
         this.watcherDao = watcherDao;
         this.repository = repository;
+        this.taskExecutor = taskExecutor;
     }
 
     @PostConstruct
-    void initialImport() throws Exception {
-        importFrom(baseDir);
-        watcherDao.watch(baseDir);
+    void importAndWatch() throws Exception {
+        LOGGER.debug("Starting initial import of documents from directory {}", baseDir);
+        taskExecutor.execute(() -> {
+            try {
+                importFrom(baseDir);
+                watcherDao.watch(baseDir);
+            } catch (IOException e) {
+                LOGGER.error("Couldn't proceed with initial import or watch due to exception", e);
+            }
+        });
     }
 
     public void importFrom(String path) throws IOException {
