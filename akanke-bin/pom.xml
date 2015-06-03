@@ -59,7 +59,7 @@
             <plugin>
                 <groupId>org.jolokia</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.10.5</version>
+                <version>0.11.5</version>
                 <configuration>
                     <images>
                         <image>
@@ -67,12 +67,14 @@
                             <name>bkielczewski/akanke:${project.version}</name>
                             <build>
                                 <from>dockerfile/java:oracle-java8</from>
-                                <exportDir>/data</exportDir>
-                                <assemblyDescriptor>assembly.xml</assemblyDescriptor>
+                                <assembly>
+                                    <basedir>/data</basedir>
+                                    <descriptor>${project.basedir}/assembly.xml</descriptor>
+                                </assembly>
                                 <ports>
                                     <port>8080</port>
                                 </ports>
-                                <command>java -jar akanke-web-${version}.jar</command>
+                                <command>java -jar akanke-web-${project.version}.jar</command>
                             </build>
                             <run>
                                 <ports>
