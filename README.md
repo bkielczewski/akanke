@@ -39,6 +39,7 @@ Development
 * [Node.js](http://nodejs.org/download/)
 
 ### Quick start
+0. `mvn install`
 1. `cd akanke-web`
 2. `mvn spring-boot:run`
 3. Point your browser to [http://localhost:8080](http://localhost:8080)
