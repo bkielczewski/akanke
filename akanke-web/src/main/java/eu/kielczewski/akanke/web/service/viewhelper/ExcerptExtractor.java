@@ -2,7 +2,7 @@ package eu.kielczewski.akanke.web.service.viewhelper;
 
 class ExcerptExtractor {
 
-    public static final String EXCERPT_END_TAG = "<!--more-->";
+    private static final String EXCERPT_END_TAG = "<!--more-->";
 
     public String extract(String source, String excerptEndTagReplacement) {
         int i = source.indexOf(EXCERPT_END_TAG);
