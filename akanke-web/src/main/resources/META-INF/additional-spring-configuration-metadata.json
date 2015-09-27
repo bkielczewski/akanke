@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "akanke.base-url",
+      "type": "java.lang.String",
+      "description": "Public facing URL of the application."
+    },
+    {
+      "name": "akanke.documents.path",
+      "type": "java.lang.String",
+      "description": "Path to scan when looking for documents"
+    },
+    {
+      "name": "akanke.resources.path",
+      "type": "java.lang.String",
+      "description": "Path that holds public resources"
+    },
+    {
+      "name": "akanke.templates.path",
+      "type": "java.lang.String",
+      "description": "Path that holds page templates"
+    },
+    {
+      "name": "akanke.facebook.app-id",
+      "type": "java.lang.String",
+      "description": "Facebook application ID to use for social features"
+    },
+    {
+      "name": "akanke.facebook.app-secret",
+      "type": "java.lang.String",
+      "description": "Facebook application Secret to use for social features"
+    }
+  ]
+}

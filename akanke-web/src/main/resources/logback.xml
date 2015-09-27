@@ -12,11 +12,11 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
-    <logger name="eu.kielczewski" additivity="false" level="INFO">
+    <logger name="eu.kielczewski" additivity="false">
         <appender-ref ref="file"/>
         <appender-ref ref="CONSOLE"/>
     </logger>
-    <root level="WARN">
+    <root>
         <appender-ref ref="file"/>
     </root>
 </configuration>
