@@ -12,7 +12,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.2.3.RELEASE</version>
+        <version>1.2.6.RELEASE</version>
     </parent>
 
     <modules>
@@ -28,9 +28,8 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-social-facebook.version>2.0.1.RELEASE</spring-social-facebook.version>
         <logstash-logback-encoder.version>3.4</logstash-logback-encoder.version>
-        <pegdown.version>1.4.2</pegdown.version>
+        <pegdown.version>1.5.0</pegdown.version>
         <guava.version>18.0</guava.version>
     </properties>
 
