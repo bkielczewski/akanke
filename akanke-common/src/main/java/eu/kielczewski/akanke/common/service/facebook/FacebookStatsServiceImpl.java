@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import eu.kielczewski.akanke.common.domain.FacebookStats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.social.SocialException;
@@ -28,7 +29,7 @@ class FacebookStatsServiceImpl implements FacebookStatsService {
     @Value("${akanke.base-url}")
     private String baseUrl;
 
-    @Inject
+    @Autowired
     public FacebookStatsServiceImpl(FacebookTemplate facebookTemplate) {
         this.facebookTemplate = facebookTemplate;
     }

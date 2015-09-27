@@ -6,6 +6,7 @@ import eu.kielczewski.akanke.common.repository.DocumentRepository;
 import eu.kielczewski.akanke.common.service.facebook.FacebookStatsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,7 @@ class DocumentFacebookStatsUpdater {
     private final DocumentRepository documentRepository;
     private final FacebookStatsService facebookStatsService;
 
-    @Inject
+    @Autowired
     public DocumentFacebookStatsUpdater(DocumentRepository documentRepository, FacebookStatsService facebookStatsService) {
         this.documentRepository = documentRepository;
         this.facebookStatsService = facebookStatsService;

@@ -4,6 +4,7 @@ import eu.kielczewski.akanke.common.domain.Document;
 import eu.kielczewski.akanke.common.repository.DocumentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -21,7 +22,7 @@ class DocumentServiceImpl implements DocumentService {
     private static final Logger LOGGER = LoggerFactory.getLogger(DocumentServiceImpl.class);
     private final DocumentRepository repository;
 
-    @Inject
+    @Autowired
     public DocumentServiceImpl(DocumentRepository repository) {
         this.repository = repository;
     }

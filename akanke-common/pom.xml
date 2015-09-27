@@ -61,13 +61,6 @@
             <artifactId>guava</artifactId>
         </dependency>
 
-        <!-- Java EE -->
-
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-        </dependency>
-
     </dependencies>
 
 

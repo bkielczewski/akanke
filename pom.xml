@@ -86,14 +86,6 @@
                 <version>${guava.version}</version>
             </dependency>
 
-            <!-- Java EE -->
-
-            <dependency>
-                <groupId>javax.inject</groupId>
-                <artifactId>javax.inject</artifactId>
-                <version>1</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 </project>

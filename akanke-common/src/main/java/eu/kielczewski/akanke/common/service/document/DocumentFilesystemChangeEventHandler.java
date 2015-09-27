@@ -5,6 +5,7 @@ import eu.kielczewski.akanke.common.domain.Document;
 import eu.kielczewski.akanke.common.repository.DocumentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ class DocumentFilesystemChangeEventHandler implements ApplicationListener<Direct
     private final DocumentImporter importer;
     private final DocumentCreator creator;
 
-    @Inject
+    @Autowired
     public DocumentFilesystemChangeEventHandler(DocumentImporter importer, DocumentCreator creator, DocumentRepository repository) {
         this.importer = importer;
         this.creator = creator;

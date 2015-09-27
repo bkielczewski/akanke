@@ -8,6 +8,7 @@ import org.pegdown.PegDownProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -29,7 +30,7 @@ class DocumentCreator {
     private final FacebookStatsService facebookStatsService;
     private final ObjectFactory<PegDownProcessor> pegDownProcessor;
 
-    @Inject
+    @Autowired
     public DocumentCreator(FileDao fileDao,
                            DocumentPropertyExtractor propertyExtractor,
                            FacebookStatsService facebookStatsService,

@@ -3,6 +3,7 @@ package eu.kielczewski.akanke.web.controller;
 import eu.kielczewski.akanke.common.service.document.DocumentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ public class BlogController {
     private static final int NUM_PER_PAGE = 5;
     private final DocumentService documentService;
 
-    @Inject
+    @Autowired
     public BlogController(DocumentService documentService) {
         this.documentService = documentService;
     }

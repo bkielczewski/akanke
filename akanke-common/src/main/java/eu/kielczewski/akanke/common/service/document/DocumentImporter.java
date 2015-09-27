@@ -6,6 +6,7 @@ import eu.kielczewski.akanke.common.domain.Document;
 import eu.kielczewski.akanke.common.repository.DocumentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ class DocumentImporter {
     private final DocumentRepository repository;
     private final TaskExecutor taskExecutor;
 
-    @Inject
+    @Autowired
     public DocumentImporter(@Value("${akanke.documents.path}") String baseDir,
                             DirectorySeekerDao seekerDao,
                             DirectoryWatcherDao watcherDao,

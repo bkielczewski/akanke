@@ -3,6 +3,7 @@ package eu.kielczewski.akanke.common.dao.directory;
 import com.google.common.base.MoreObjects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.scheduling.annotation.Async;
@@ -22,7 +23,7 @@ public class DirectoryWatcherDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(DirectoryWatcherDao.class);
     private final ApplicationEventPublisher applicationEventPublisher;
 
-    @Inject
+    @Autowired
     public DirectoryWatcherDao(final ApplicationEventPublisher applicationEventPublisher) {
         this.applicationEventPublisher = applicationEventPublisher;
     }
