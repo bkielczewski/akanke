@@ -76,6 +76,13 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Rome -->
+
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+        </dependency>
+
         <!-- Guava -->
 
         <dependency>

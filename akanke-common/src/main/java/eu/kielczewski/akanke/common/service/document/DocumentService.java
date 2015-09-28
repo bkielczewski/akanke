@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface DocumentService {
 
@@ -15,6 +16,8 @@ public interface DocumentService {
     Page<Document> getRecentByTag(String tag, int page, int numPerPage);
 
     Page<Document> getRecent(int page, int numPerPage);
+
+    Optional<Document> getOneMostRecent();
 
     Map<String, Map<String, Long>> getCountInYearMonth();
 

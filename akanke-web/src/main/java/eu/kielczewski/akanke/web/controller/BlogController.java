@@ -27,6 +27,11 @@ public class BlogController {
         this.documentService = documentService;
     }
 
+    @RequestMapping(value = "/feed/", produces = "application/*")
+    public String getFeed() {
+        return "blogRssFeedView";
+    }
+
     @RequestMapping("/blog/")
     public ModelAndView getBlog() {
         LOGGER.debug("Getting the blog");

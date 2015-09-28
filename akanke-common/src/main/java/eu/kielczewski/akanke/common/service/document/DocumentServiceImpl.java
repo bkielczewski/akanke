@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 class DocumentServiceImpl implements DocumentService {
@@ -70,6 +71,20 @@ class DocumentServiceImpl implements DocumentService {
         }
         LOGGER.trace("Returning {}", documents);
         return documents;
+    }
+
+    @Override
+    public Optional<Document> getOneMostRecent() {
+        LOGGER.debug("Getting most recent document");
+        Page<Document> documents = repository.findAll(new PageRequest(0, 1, Sort.Direction.DESC, "datePublished"));
+        if (documents.getContent().isEmpty()) {
+            LOGGER.debug("No documents");
+            return Optional.empty();
+        } else {
+            Document document = documents.getContent().get(0);
+            LOGGER.trace("Returning {}", document);
+            return Optional.of(document);
+        }
     }
 
     @Override
