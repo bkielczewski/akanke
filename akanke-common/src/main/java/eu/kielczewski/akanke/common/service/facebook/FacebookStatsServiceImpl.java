@@ -12,8 +12,10 @@ import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.ResourceAccessException;
 
 import javax.inject.Inject;
+import java.net.ConnectException;
 import java.util.Collections;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -52,7 +54,7 @@ class FacebookStatsServiceImpl implements FacebookStatsService {
                 int shareCount = (shareNode.has(SHARE_COUNT)) ? shareNode.get(SHARE_COUNT).asInt() : 0;
                 return new FacebookStats(commentCount, shareCount);
             }
-        } catch (SocialException e) {
+        } catch (SocialException | ResourceAccessException e) {
             LOGGER.warn("Ignoring exception while fetching stats for document id={} from Facebook", documentId, e);
             return new FacebookStats();
         }
