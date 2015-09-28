@@ -40,6 +40,9 @@
                 <artifactId>grunt-maven-plugin</artifactId>
                 <version>1.5.1</version>
                 <configuration>
+                    <bowerExecutable>node_modules/.bin/bower</bowerExecutable>
+                    <gruntExecutable>node_modules/.bin/grunt</gruntExecutable>
+                    <runGruntWithNode>true</runGruntWithNode>
                     <gruntBuildDirectory>${project.basedir}</gruntBuildDirectory>
                 </configuration>
                 <executions>
