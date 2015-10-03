@@ -50,7 +50,7 @@ public class BlogRssFeedView extends AbstractRssFeedView {
     protected List<Item> buildFeedItems(Map<String, Object> map, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         LOGGER.debug("Building feed items");
         return documentService.getRecent(0, NUMBER_OF_ITEMS).getContent().stream()
-                .map(p -> createItem((Document) p))
+                .map(this::createItem)
                 .collect(Collectors.toList());
     }
 
